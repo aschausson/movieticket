@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
 }
@@ -5,6 +9,7 @@ html {
 body{
     background-color: lightgray;
     min-height: 100%;
+    margin: 0;
 }
 
 
@@ -32,4 +37,19 @@ svg text {
 
 .nolibre{
 	fill: red;
+}
+
+svg{
+    width: 600px;
+    background-color: #fff;
+}
+
+@media (max-width: 700px) {
+
+
+    svg{
+        width: 100%;
+        background-color: #fff"
+    }
+
 }
