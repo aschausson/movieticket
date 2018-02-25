@@ -7,13 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="external/jquery.js"></script>
     <link rel="stylesheet" href="css/estilo.css">
+    <script src="external/jquery-ui.min.js"></script>
+    <script src="external/jquery.ui.touch-punch.min.js"></script>
+    <script src="external/toastr.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
 
 
-    <svg id="sala" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width:600px; height: 400px; background-color: #fff">
+    <svg id="sala" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width:600px; height: 450px; background-color: #fff">
 
         <symbol id="asiento">
                 <rect stroke="#000" stroke-width="6" x="3.520227" y="24.930801" width="196.5" height="174.972498" id="svg_1" rx="20"/>
@@ -25,7 +28,7 @@
                 <rect stroke="#000" x="87.523919" y="27.374598" width="29.474997" height="115.345004" id="svg_7" rx="20"/>
         </symbol>
 
-        <symbol id="mas" viewBox="-5200 -60 4600 4600">
+        <symbol id="mas" viewBox="-4850 -60 4600 4600">
             <path style="fill:#32BEA6;" d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082
             c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z" />
             <path style="fill:#FFFFFF;" d="M383.546,206.55H289.08v-93.938c0-3.976-3.224-7.199-7.201-7.199H213.75
@@ -34,7 +37,7 @@
                 C390.745,209.774,387.521,206.55,383.546,206.55z" />
         </symbol>
 
-        <symbol id="menos" viewBox="-4600 -60 4600 4600">
+        <symbol id="menos" viewBox="-4450 -60 4750 4750">
             <circle style="fill:#32BEA6;" cx="256" cy="256" r="256" />
             <rect x="119.68" y="240" style="fill:#FFFFFF;" width="272" height="32" />
         </symbol>
@@ -55,7 +58,7 @@
             </text>
         </symbol>
 
-        <symbol id="leyenda" viewBox=" -450 970 3000 1">
+        <symbol id="leyenda" viewBox=" -450 1100 3000 1">
             <rect id="svg_31" height="213.333353" width="1985.333517" y="3.066668" x="3.333242" stroke-width="3" stroke="#000" fill="#fff"/>
             <g stroke="null" id="svg_8">
             <rect stroke="#000" fill="#fff" stroke-width="5" x="16.853561" y="31.597468" width="196.5" height="174.972498" id="svg_1" rx="20"/>
@@ -95,15 +98,30 @@
 
                 <use href="#pantalla" x="1600" y="0" width="3600" height="1150" />
 
+                <svg class="exit" height="330" width="330" y="1100"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/exit.svg" />
+                </svg>
+                <svg class="exit" height="330" width="330" y="1100" x="5670"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/exit.svg" />
+                </svg>
 
+                <svg class="exit" height="330" width="330" y="4150" x="5600"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/door.svg" />
+                </svg>
             </g>
         </g>
 
         <use href="#mas" />
         <use href="#menos" />
         <use href="#leyenda"/>
+
+
+
+
     </svg>
-    <p id="cosa">hola</p>
 
 
     <script src="js/entradas.js"></script>

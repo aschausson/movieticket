@@ -36,17 +36,11 @@ function listeners(){
         $('.escala').attr('transform', 'scale('+ escala +')');
     });
 
-    
     $(document.body).on("mousemove", function(e) {
         $('#cosa').text(e.pageX)
         move(e);
     });
     
-    $(document.body).on("touchmove", function(e) {
-        $('#cosa').text(e.pageX)
-        move(e);
-    });
-
     $(document.body).on("mousedown", function (e) {
         $dragging = $(e.target);
         trasX = e.pageX;
@@ -68,6 +62,24 @@ function listeners(){
             clickAsiento($(this))
     })
 
+
+
+    $(document.body).on("touchmove", function(e) {
+        var event = window.event;
+      moveMouse(event.touches[0].pageX, event.touches[0].pageY);
+    });
+    $(document.body).on("touchstart", function (e) {
+        var event = window.event;
+        $dragging = $(event.target);
+        trasX = event.touches[0].pageX;
+        trasY = event.touches[0].pageY;
+    });
+
+    $(document.body).on("touchend", function (e) {
+        $dragging = null;
+        anteriorX = trasladoX;
+        anteriorY = trasladoY;
+    });
 }
 
 
@@ -80,6 +92,25 @@ function move(e){
             if (trasladoX > 400)
                 trasladoX = 400;
             trasladoY = ((e.pageY - trasY)/escala -  $('#sala').offset().top) + anteriorY;
+            if (trasladoY < -2600)
+                trasladoY = -2600;
+            if (trasladoY > 400)
+                trasladoY = 400;
+            $('.traslada').attr('transform', 'translate('+ trasladoX +','+ trasladoY +')');
+        }
+
+    }
+}
+
+function moveMouse(pageX, pageY){
+    if ($dragging) {
+        if(escala > 0.1){
+            trasladoX = ((pageX - trasX)/escala -  $('#sala').offset().left) + anteriorX;
+            if (trasladoX < -2600)
+                trasladoX = -2600;
+            if (trasladoX > 400)
+                trasladoX = 400;
+            trasladoY = ((pageY - trasY)/escala -  $('#sala').offset().top) + anteriorY;
             if (trasladoY < -2600)
                 trasladoY = -2600;
             if (trasladoY > 400)
@@ -159,3 +190,6 @@ function clickAsiento(asiento){
     localStorage.setItem("retretes", retretesJson)
     */
 }
+
+
+
