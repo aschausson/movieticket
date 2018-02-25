@@ -38,22 +38,13 @@ function listeners(){
 
     
     $(document.body).on("mousemove", function(e) {
-        if ($dragging) {
-            if(escala > 0.1){
-                trasladoX = ((e.pageX - trasX)/escala -  $('#sala').offset().left) + anteriorX;
-                if (trasladoX < -2600)
-                    trasladoX = -2600;
-                if (trasladoX > 400)
-                    trasladoX = 400;
-                trasladoY = ((e.pageY - trasY)/escala -  $('#sala').offset().top) + anteriorY;
-                if (trasladoY < -2600)
-                    trasladoY = -2600;
-                if (trasladoY > 400)
-                    trasladoY = 400;
-                $('.traslada').attr('transform', 'translate('+ trasladoX +','+ trasladoY +')');
-            }
-
-        }
+        $('#cosa').text(e.pageX)
+        move(e);
+    });
+    
+    $(document.body).on("touchmove", function(e) {
+        $('#cosa').text(e.pageX)
+        move(e);
     });
 
     $(document.body).on("mousedown", function (e) {
@@ -77,6 +68,26 @@ function listeners(){
             clickAsiento($(this))
     })
 
+}
+
+
+function move(e){
+    if ($dragging) {
+        if(escala > 0.1){
+            trasladoX = ((e.pageX - trasX)/escala -  $('#sala').offset().left) + anteriorX;
+            if (trasladoX < -2600)
+                trasladoX = -2600;
+            if (trasladoX > 400)
+                trasladoX = 400;
+            trasladoY = ((e.pageY - trasY)/escala -  $('#sala').offset().top) + anteriorY;
+            if (trasladoY < -2600)
+                trasladoY = -2600;
+            if (trasladoY > 400)
+                trasladoY = 400;
+            $('.traslada').attr('transform', 'translate('+ trasladoX +','+ trasladoY +')');
+        }
+
+    }
 }
 
 
