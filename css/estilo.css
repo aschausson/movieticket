@@ -40,8 +40,10 @@ svg text {
 }
 
 svg{
+    display: block;
     width: 600px;
     background-color: #fff;
+    margin: 0 auto;
 }
 
 @media (max-width: 700px) {

@@ -41,7 +41,7 @@ function listeners(){
         move(e);
     });
     
-    $(document.body).on("mousedown", function (e) {
+    $('svg').on("mousedown", function (e) {
         $dragging = $(e.target);
         trasX = e.pageX;
         trasY = e.pageY;
@@ -68,7 +68,7 @@ function listeners(){
         var event = window.event;
       moveMouse(event.touches[0].pageX, event.touches[0].pageY);
     });
-    $(document.body).on("touchstart", function (e) {
+    $('svg').on("touchstart", function (e) {
         var event = window.event;
         $dragging = $(event.target);
         trasX = event.touches[0].pageX;
@@ -86,7 +86,7 @@ function listeners(){
 function move(e){
     if ($dragging) {
         if(escala > 0.1){
-            trasladoX = ((e.pageX - trasX)/escala -  $('#sala').offset().left) + anteriorX;
+            trasladoX = ((e.pageX - trasX)/escala ) + anteriorX;
             if (trasladoX < -2600)
                 trasladoX = -2600;
             if (trasladoX > 400)
