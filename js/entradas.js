@@ -20,14 +20,14 @@ $( document ).ready(function() {
 
 
 function listeners(){
-    $('#mas').click(function(){
+    $('#masBoton').click(function(){
         escala = Math.round((escala + 0.05) * 100)/100;
         if (escala >= 0.2)
             escala = 0.2;
         $('.escala').attr('transform', 'scale('+ escala +')')
     })
 
-    $('#menos').click(function(){
+    $('#menosBoton').click(function(){
         escala = Math.round((escala - 0.05) * 100)/100;
         if (escala <= 0.1){
             escala = 0.1;
@@ -140,8 +140,7 @@ function dibujarAsientos(){
         
         for (let j = 0; j < nAsientos; j++) {
             var asiento = document.createElementNS(xmlns, 'use')
-
-            asiento.setAttributeNS(null,'href', '#asiento');
+            asiento.setAttributeNS('http://www.w3.org/1999/xlink','href', '#asiento');
             asiento.setAttributeNS(null,'x', xActual);
             asiento.setAttributeNS(null,'y', yActual);
             asiento.setAttributeNS(null,'width', '206');

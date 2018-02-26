@@ -96,7 +96,7 @@
         <g class="escala" transform="scale(0.1)" data-role="viewport-scale">
             <g id="salaAsientos" class="traslada" transform="translate(0,0)" data-role="viewport-translate">
 
-                <use href="#pantalla" x="1600" y="0" width="3600" height="1150" />
+                <use xlink:href="#pantalla" x="1600" y="0" width="3600" height="1150" />
 
                 <svg class="exit" height="330" width="330" y="1100"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
@@ -114,14 +114,15 @@
             </g>
         </g>
 
-        <use href="#mas" />
-        <use href="#menos" />
-        <use href="#leyenda"/>
+        <use id="masBoton" xlink:href="#mas" />
+        <use id="menosBoton" xlink:href="#menos" />
+        <use xlink:href="#leyenda"/>
 
 
 
 
     </svg>
+
 
 
     <script src="js/entradas.js"></script>
