@@ -1,0 +1,191 @@
+{
+    "p1":
+    { 
+        "titulo": "Memento", 
+        "genero": "Thriller", 
+        "anio": "2000", 
+        "director": "Christopher Nolan", 
+        "reparto": "Guy Pearce, Carrie-Anne Moss", 
+        "sinopsis": "La memoria de Leonard, un investigador de una agencia de seguros, está irreversiblemente dañada debido a un golpe sufrido en la cabeza, cuando intentaba evitar el asesinato de su mujer: éste es el último hecho que recuerda del pasado. La memoria reciente la ha perdido: los hechos cotidianos desaparecen de su mente en unos minutos. Así pues, para investigar y vengar el asesinato de su esposa tiene que recurrir a la ayuda de una cámara instantánea y a las notas tatuadas en su cuerpo.",
+		"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p2":
+    { 
+        "titulo": "Terminator 2: El juicio final", 
+        "genero": "Ciencia-Ficción", 
+        "anio": "1991", 
+        "director": "James Cameron", 
+        "reparto": "Arnold Schwarzenegger, Linda Hamilton", 
+        "sinopsis": "Sarah Connor, la madre soltera del rebelde John Connor, está ingresada en un psiquiátrico. Algunos años antes, un viajero del tiempo le había revelado que su hijo sería el salvador de la humanidad en un futuro dominado por las máquinas. Se convirtió entonces en una especie de guerrera y educó a su hijo John en tácticas de supervivencia. Esta es la razón por la que está recluida en un manicomio. Cuando un nuevo androide mejorado, un T-1000, llega del futuro para asesinar a John, un viejo modelo T-800 será enviado para protegerle."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p3":
+    { 
+        "titulo": "Origen", 
+        "genero": "Thriller", 
+        "anio": "2010", 
+        "director": "Christopher Nolan", 
+        "reparto": "Leonardo DiCaprio,  Joseph Gordon-Levitt", 
+        "sinopsis": "Dom Cobb (DiCaprio) es un experto en el arte de apropiarse, durante el sueño, de los secretos del subconsciente ajeno. La extraña habilidad de Cobb le ha convertido en un hombre muy cotizado en el mundo del espionaje, pero también lo ha condenado a ser un fugitivo y, por consiguiente, a renunciar a llevar una vida normal. Su única oportunidad para cambiar de vida será hacer exactamente lo contrario de lo que ha hecho siempre: la incepción, que consiste en implantar una idea en el subconsciente en lugar de sustraerla. Sin embargo, su plan se complica debido a la intervención de alguien que parece predecir cada uno de sus movimientos, alguien a quien sólo Cobb podrá descubrir."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p4":
+    { 
+        "titulo": "Mary Poppins", 
+        "genero": "Musical", 
+        "anio": "1964", 
+        "director": "Robert Stevenson", 
+        "reparto": "Julie Andrews,  Dick van Dyke", 
+        "sinopsis": "Reinado de Eduardo VII (1901-1910). La vida de una familia inglesa formada por un padre banquero, una madre sufragista y dos niños rebeldes -que pretenden llamar la atención de sus padres haciendo la vida imposible a todas las niñeras-, se verá alterada con la llegada de Mary Poppins, una extravagante institutriz que baja de las nubes empleando su paraguas como paracaídas. Debut y Oscar para Julie Andrews en este clásico del cine familiar que en su día batió récords de taquilla. Una niñera mágica y canciones pegadizas que harán las delicias de los niños de la casa. "
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p5":
+    { 
+        "titulo": "Regreso al futuro", 
+        "genero": "Ciencia-Ficción", 
+        "anio": "1985", 
+        "director": "Robert Zemeckis", 
+        "reparto": "Michael J. Fox, Christopher Lloyd", 
+        "sinopsis": "El adolescente Marty McFly es amigo de Doc, un científico al que todos toman por loco. Cuando Doc crea una máquina para viajar en el tiempo, un error fortuito hace que Marty llegue a 1955, año en el que sus futuros padres aún no se habían conocido. Después de impedir su primer encuentro, deberá conseguir que se conozcan y se casen; de lo contrario, su existencia no sería posible. "
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p6":
+    { 
+        "titulo": "Cadena perpetua", 
+        "genero": "Drama", 
+        "anio": "1994", 
+        "director": "Frank Darabont", 
+        "reparto": "Tim Robbins,  Morgan Freeman", 
+        "sinopsis": "Acusado del asesinato de su mujer, Andrew Dufresne (Tim Robbins), tras ser condenado a cadena perpetua, es enviado a la cárcel de Shawshank. Con el paso de los años conseguirá ganarse la confianza del director del centro y el respeto de sus compañeros de prisión, especialmente de Red (Morgan Freeman), el jefe de la mafia de los sobornos."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p7":
+    { 
+        "titulo": "Avatar", 
+        "genero": "Ciencia-Ficción", 
+        "anio": "2009", 
+        "director": "James Cameron", 
+        "reparto": "Sam Worthington,  Zoe Saldana", 
+        "sinopsis": "Año 2154. Jake Sully (Sam Worthington), un ex-marine condenado a vivir en una silla de ruedas, sigue siendo, a pesar de ello, un auténtico guerrero. Precisamente por ello ha sido designado para ir a Pandora, donde algunas empresas están extrayendo un mineral extraño que podría resolver la crisis energética de la Tierra. Para contrarrestar la toxicidad de la atmósfera de Pandora, se ha creado el programa Avatar, gracias al cual los seres humanos mantienen sus conciencias unidas a un avatar: un cuerpo biológico controlado de forma remota que puede sobrevivir en el aire letal. Esos cuerpos han sido creados con ADN humano, mezclado con ADN de los nativos de Pandora, los Na'vi. Convertido en avatar, Jake puede caminar otra vez. Su misión consiste en infiltrarse entre los Na'vi, que se han convertido en el mayor obstáculo para la extracción del mineral. Pero cuando Neytiri, una bella Na'vi (Zoe Saldana), salva la vida de Jake, todo cambia: Jake, tras superar ciertas pruebas, es admitido en su clan. Mientras tanto, los hombres esperan los resultados de la misión de Jake."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p8":
+    { 
+        "titulo": "Ex Machina", 
+        "genero": "Ciencia-Ficción", 
+        "anio": "2015", 
+        "director": "Alex Garland", 
+        "reparto": "Domhnall Gleeson, Alicia Vikander", 
+        "sinopsis": "Nathan, un programador multimillonario con fama de reclusivo, selecciona a Caleb, un joven empleado de su empresa, para que pase una semana con él en un lugar remoto en las montañas con el objetivo de que participe en un test en el que está involucrada su última creación: Ava, un robot-mujer en el que inteligencia artificial lo es todo."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p9":
+    { 
+        "titulo": "Mad Max: Furia en la carretera", 
+        "genero": "Ciencia-Ficción", 
+        "anio": "2015", 
+        "director": "George Miller", 
+        "reparto": "Tom Hardy,  Charlize Theron", 
+        "sinopsis": "Perseguido por su turbulento pasado, Mad Max cree que la mejor forma de sobrevivir es ir solo por el mundo. Sin embargo, se ve arrastrado a formar parte de un grupo que huye a través del desierto en un War Rig conducido por una Emperatriz de élite: Furiosa. Escapan de una Ciudadela tiranizada por Immortan Joe, a quien han arrebatado algo irreemplazable. Enfurecido, el Señor de la Guerra moviliza a todas sus bandas y persigue implacablemente a los rebeldes en una guerra de la carretera de altas revoluciones... Cuarta entrega de la saga post-apocalíptica que resucita la trilogía que a principios de los ochenta protagonizó Mel Gibson."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	},
+
+    "p10":
+    { 
+        "titulo": "Los goonies", 
+        "genero": "Aventuras", 
+        "anio": "1985", 
+        "director": "Richard Donner", 
+        "reparto": "Sean Astin,  Corey Feldman", 
+        "sinopsis": "Mikey es un niño de trece años que junto con su hermano mayor y sus amigos forman un grupo que se hacen llamar los Goonies. Un día deciden subir al desván de su casa, donde su padre guarda antigüedades. Allí encuentran el mapa de un tesoro perdido que data del siglo XVII, de la época de los piratas, y deciden salir a buscarlo repletos de espíritu aventurero."
+    	"dias":{
+			"lunes": "16:00 18:30 22:00",
+			"martes": "17:00 19:30 21:30",
+			"miercoles": "16:30 18:00 20:30 22:00",
+			"jueves": "17:00 19:30 21:30",
+			"viernes": "16:00 18:30 22:00",
+			"sabado": "16:00 17:30 19:00 20:30 22:00",
+			"domingo": "16:30 18:00 20:30 22:00"
+		}
+	}
+}
