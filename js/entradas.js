@@ -1,3 +1,4 @@
+
 var escala = 0.1;
 var trasX = 0;
 var trasY = 0;
@@ -9,6 +10,31 @@ var $dragging = null;
 var asientoClicado = null;
 var nEntradas = 4;
 var nEntradasSel = 0;
+var asientos = [];
+
+function Asiento (x,y,estado) {
+    this.x = x
+    this.y = y
+    this.estado = estado
+}
+
+
+
+function creaAsientosJson(x,y,estado){
+	var asiento = new Asiento(x,y,estado)
+	asientos.push(asiento)
+
+}
+
+
+function recuperar(){
+
+	retretes = JSON.parse(localStorage.getItem("retretes"))
+	insertaRetretes()
+	tooltipBoton()
+}
+
+
 
 $( document ).ready(function() {
     
@@ -80,6 +106,22 @@ function listeners(){
         anteriorX = trasladoX;
         anteriorY = trasladoY;
     });
+
+    $('#botonIrPagar').click(function(){
+        if(nEntradasSel > 0){
+            guardarPago()
+            window.location.href = 'pagar.html';
+        }
+        else{
+            alert('Debe seleccionar al menos un asiento.')
+        }
+            
+    })
+}
+
+
+function guardarPago(){
+    
 }
 
 
@@ -91,7 +133,7 @@ function move(e){
                 trasladoX = -2600;
             if (trasladoX > 400)
                 trasladoX = 400;
-            trasladoY = ((e.pageY - trasY)/escala -  $('#sala').offset().top) + anteriorY;
+            trasladoY = ((e.pageY - trasY)/escala ) + anteriorY;
             if (trasladoY < -2600)
                 trasladoY = -2600;
             if (trasladoY > 400)
@@ -176,6 +218,18 @@ function clickAsiento(asiento){
             nEntradasSel--;
         }
 
+    
+        var n = 0
+        $(asiento).each(function(){
+            if ($(this).hasClass('select'))
+                retretes[n].estado="seleccionado"
+            if ($(this).hasClass('libre'))
+                retretes[n].estado="libre"
+            n++
+        })
+        var retretesJson = JSON.stringify(retretes)
+        localStorage.setItem("retretes", retretesJson)
+
 /*
 	var n = 0
 	$('.ret').each(function(){
@@ -189,6 +243,8 @@ function clickAsiento(asiento){
     localStorage.setItem("retretes", retretesJson)
     */
 }
+
+
 
 
 
