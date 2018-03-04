@@ -1,0 +1,440 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body{
+    box-sizing:border-box;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 100%;
+    margin: 0px;
+    background-color: #f2f2f2;
+}
+
+#cabecera{
+    height: 100px;
+    width: 435px;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+}
+
+#titulo{
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#ayuda{
+    display: block;
+    height: 20px;
+    position: absolute;
+    float: left;
+    top: 90px;
+}
+
+#contenedor{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    margin: 3px;
+}
+
+.peliPequeCont{
+    background-color: #e0e0e0;
+    width: 500px;
+    height: 234px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+    overflow: hidden;
+    font-size: 90%;
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+    transition: text-shadow 0.5s;
+    transition: box-shadow 0.5s;
+}
+
+.peliPequeCont img{
+    float: left;
+    margin: 5px;
+}
+
+.peliPequeCont h1, .peliPequeCont h2, .peliPequeCont p{
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.peliPequeCont h1{
+    margin-bottom: 7px;
+    text-shadow: 2px 2px 4px grey;
+}
+
+h2{
+    font-size: 1.2em;
+}
+
+p{
+    font-size: 1.2em;
+}
+
+.peliPequeCont:hover, .peliPequeCont:focus {
+    background-color: #fafafa;
+    text-shadow: 2px 2px 4px lightgray;
+    -webkit-box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+    box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+}
+
+#ayuda{
+    cursor: pointer;
+}
+
+#panelAyuda{
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: #FFD700;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 10px 10px 10px #484848;
+    border-radius: 20px;
+    position: fixed;
+    top: 0;
+	bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 20;
+}
+
+#peliculaGrande{
+	width: 640px;
+    min-height: 100px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+    box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.57);
+    left: 0;
+    right: 0;
+    display:block;
+    overflow:auto;
+    margin: auto;
+    z-index: 15;
+    font-size: 90%;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+
+    transition: box-shadow 0.5s;
+}
+
+.peliculaGrande:hover, .peliculaGrande:focus {
+    -webkit-box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+    box-shadow: 0px 10px 15px 4px rgba(0,0,0,0.57);
+}
+
+
+#cierraAyuda{
+    float: right;
+    cursor: pointer;
+}
+
+#bloqueo{
+    width: 100%;
+    min-height:100%;
+    background: #000;
+    opacity: 0.5;
+    top:0px;
+    left:0px;
+    z-index:10;
+    position:fixed;
+    padding: 0px;
+    margin: 0px;
+}
+
+#pgImagen{
+    float: left;
+    margin: 5px;
+    width: 250px;
+}
+
+.botonAtras{
+    width: 40px;
+    margin: 5px;
+    bottom: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+#pgSinopsis{
+    margin-bottom: 40px;
+}
+
+form{
+	font-size: 120%;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+
+ .lineaFormulario{
+	 width: 250px;
+	 text-align: right;
+	 margin: 7px;
+ }
+ 
+ #botonVotar{
+	 margin-top: 10px;
+ }
+
+.divGrafica{
+    width: 620px;
+    min-height: 100px;
+    border: 2px solid black;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 10px 10px 10px #484848;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display:block;
+    overflow:auto;
+    margin: auto;
+    z-index: 15;
+    font-size: 90%;
+    height: 86%;
+    margin-top: 100px;
+}
+
+#divBotones{
+    width: 300px;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+#divBotones button{
+    position:relative;
+    width: 90px;
+    height: 35px;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#atrasResultado{
+    position: fixed;
+    width: 40px;
+    margin: 5px;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -300px;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.botonesActivo{
+    background-color: #f1f1f1;
+    border-bottom: none;
+    z-index: 40;
+}
+
+.botonesInactivo{
+    background-color: lightgray;
+    border-bottom: 2px solid black;
+    z-index: 5;
+}
+
+
+#tituloResultado{
+    text-align: center;
+    font-size: 27px;
+}
+
+
+.button {
+    position: relative;
+    background-color: #4db6ac;
+    border: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 8px;
+    width: 85px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 3px;
+    height: 30px;
+}
+
+.button:after {
+    content: "";
+    background: #b4dbd7;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.selected{
+    background-color: #15554f;
+    color: white;
+}
+
+#horas{
+    height: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 10px; 
+}
+
+#comprar{
+    width: 95px;
+    height: 40px;
+    padding: 6px;
+    font-size: 16px;
+    background-color: #ef6c00 ;
+    position: absolute;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+}
+
+#comprar:hover{
+    background-color:#fb8c00;
+
+}
+
+.pie {
+    width: 100%;
+    border: 1px solid #222;
+    background-color: rgb(211, 211, 211);
+    margin-top: 100px;
+}
+.pie p {
+    text-align: center;
+    margin: 1%;
+}
+.pie p:hover {
+    color: red;
+}
+
+
+@media (max-width: 950px) {
+    .peliPequeCont {
+        font-size: 80%;
+    }
+
+    #cabecera{
+        height: 70px;
+        width: 315px;
+    }
+
+    #titulo{
+        height: 70px;
+    }
+
+    #ayuda{
+        top: 60px;
+    }
+
+	#peliculaGrande{
+        width: 320px;
+        max-height: 500px;
+        padding: 10px;
+        margin: 0 auto;
+        box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 15;
+        font-size: 80%;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .divGrafica{
+        width: 320px;
+        border: 2px solid black;
+        background-color: f1f1f1;
+        padding: 10px;
+        margin: 0 auto;
+        box-shadow: 10px 10px 10px #484848;
+        position: absolute;
+        top: 0;
+        height: 80%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 15;
+        font-size: 80%;
+        margin-top: 94px;
+    }
+
+    #pgImagen{
+        width: 95%;
+    }
+
+    #atrasResultado{
+        position: fixed;
+        width: 40px;
+        margin: 5px;
+        bottom: 40px;
+        left: 10px;
+        cursor: pointer;
+        z-index: 30;
+    }
+
+    #divBotones button{
+        height: 30px;
+    }
+
+    .button{
+        width: 40px;
+    }
+
+    .botonHora{
+        padding: 0px;
+    }
+
+    #comprar{
+        position: relative;
+
+            left: 50%;
+            margin-left: -100px;
+            bottom: 0px;
+
+    }
+}
+

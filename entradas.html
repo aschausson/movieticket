@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="external/jquery.js"></script>
+    <script src="external/jquery-ui.min.js"></script>
+    <script src="external/jquery.ui.touch-punch.min.js"></script>
+    <script src="external/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="css/entradas.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cabecera" aria-level=1 aria-label="MovieTicket">
+        <img id="titulo" tabindex="0" src="data/movieticket.svg" alt="" aria-label="Web de valoración de películas">
+    </div>
+
+
+
+    <div id="contenedor">
+            <div class="procesoCompra"><h3> 2. Seleccione los asientos</h3></div>
+            <hr/>
+
+    <div id="info">
+        <p><label for="">Entradas seleccionadas: </label><span id="cantidad">0</span></p>
+        <p><label for="">Precio por entrada: </label><span id="precioEntrada">6.50€</span></p>
+        <p><label for="">Precio total: </label><span id="precioTotal">0.00€</span></p>
+        <p><label for="">Asientos seleccionados:</label></p>
+        <ul>
+            <li>Fila 3, asiento 12</li>
+            <li>Fila 3, asiento 13</li>
+            <li>Fila 3, asiento 14</li>
+        </ul>
+    </div>
+
+
+    <svg id="sala" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 450">
+
+        <symbol id="asiento">
+                <rect stroke="#000" stroke-width="6" x="3.520227" y="24.930801" width="196.5" height="174.972498" id="svg_1" rx="20"/>
+                <rect stroke="#000" stroke-width="6" x="3.520227" y="4.403299" width="41.264999" height="195.500004" id="svg_2"/>
+                <rect stroke="#000" stroke-width="6" x="158.755227" y="4.403299" width="41.264999" height="195.500004" id="svg_3"/>
+                <rect stroke="#000" stroke-width="6" x="28.082726" y="145.163295" width="147.374999" height="54.740002" id="svg_4" rx="20"/>
+                <rect stroke="#000" x="49.697727" y="27.374598" width="29.475" height="115.345004" id="svg_5" rx="20"/>
+                <rect stroke="#000" x="124.367727" y="27.374598" width="29.474997" height="115.345004" id="svg_6" rx="20"/>
+                <rect stroke="#000" x="87.523919" y="27.374598" width="29.474997" height="115.345004" id="svg_7" rx="20"/>
+        </symbol>
+
+        <symbol id="mas" viewBox="-4850 -60 4600 4600">
+            <path style="fill:#32BEA6;" d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082
+            c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z" />
+            <path style="fill:#FFFFFF;" d="M383.546,206.55H289.08v-93.938c0-3.976-3.224-7.199-7.201-7.199H213.75
+                c-3.977,0-7.2,3.224-7.2,7.199v93.938h-93.937c-3.977,0-7.2,3.225-7.2,7.2v69.187c0,3.976,3.224,7.199,7.2,7.199h93.937v93.41
+                c0,3.976,3.224,7.199,7.2,7.199h68.129c3.978,0,7.201-3.224,7.201-7.199v-93.41h94.466c3.976,0,7.199-3.224,7.199-7.199V213.75
+                C390.745,209.774,387.521,206.55,383.546,206.55z" />
+        </symbol>
+
+        <symbol id="menos" viewBox="-4450 -60 4750 4750">
+            <circle style="fill:#32BEA6;" cx="256" cy="256" r="256" />
+            <rect x="119.68" y="240" style="fill:#FFFFFF;" width="272" height="32" />
+        </symbol>
+
+        <symbol id="pantalla" viewBox=" 0 0 350 1">
+            <g stroke="null" id="svg_68">
+                <g stroke="null" id="svg_67">
+                    <path stroke="#000" id="svg_65" d="m5.850742,2.380217l48.703081,35.249954l162.343613,0l48.703065,-35.249954l-259.74976,0z"
+                        stroke-opacity="null" stroke-width="3" fill="#ffd4aa" />
+                    <text id="textoPantalla" font-weight="bold" stroke="#000" transform="matrix(1.0649384260177612,0,0,1.1112298965454102,-5.203191384673119,-3.9451853930950165) "
+                        xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="24" id="svg_70"
+                        y="29.874928" x="70.50003" stroke-opacity="null" stroke-width="0" fill="#0000ff">PANTALLA</text>
+                </g>
+            </g>
+            <text font-style="normal" stroke="#000" transform="matrix(1,0,0,1.3554441922855105,0,-16.123288396231658) " font-weight="bold"
+                xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="24" id="svg_69" y="74.244692"
+                x="82.375" stroke-opacity="null" stroke-width="0" fill="#0000ff">PANTALLA
+            </text>
+        </symbol>
+
+        <symbol id="leyenda" viewBox=" -450 1100 3000 1">
+            <rect id="svg_31" height="213.333353" width="1985.333517" y="3.066668" x="3.333242" stroke-width="3" stroke="#000" fill="#fff"/>
+            <g stroke="null" id="svg_8">
+            <rect stroke="#000" fill="#fff" stroke-width="5" x="16.853561" y="31.597468" width="196.5" height="174.972498" id="svg_1" rx="20"/>
+            <rect stroke="#000" fill="#fff" stroke-width="5" x="16.853561" y="11.069966" width="41.264999" height="195.500004" id="svg_2"/>
+            <rect stroke="#000" fill="#fff" stroke-width="5" x="172.088561" y="11.069966" width="41.264999" height="195.500004" id="svg_3"/>
+            <rect stroke="#000" fill="#fff" stroke-width="5" x="41.41606" y="151.829962" width="147.374999" height="54.740002" id="svg_4" rx="20"/>
+            <rect stroke="#000" fill="#fff" x="63.031061" y="34.041265" width="29.475" height="115.345004" id="svg_5" rx="20"/>
+            <rect stroke="#000" fill="#fff" x="137.701061" y="34.041265" width="29.474997" height="115.345004" id="svg_6" rx="20"/>
+            <rect stroke="#000" fill="#fff" x="100.857253" y="34.041265" width="29.474997" height="115.345004" id="svg_7" rx="20"/>
+            </g>
+            <text font-weight="bold" stroke="#000" transform="matrix(3.0626559257507324,0,0,3.8798120021820064,-480.8686072304845,-248.04511483013627) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_10" y="101.83097" x="228.14634" stroke-width="0" fill="#000000">LIBRE</text>
+            <text font-weight="bold" stroke="#000" transform="matrix(3.0626559257507324,0,0,3.8798120021820064,-191.53512115031475,-264.045131996274) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_11" y="105.783053" x="298.02038" stroke-width="0" fill="#000000">SELECCIONADO</text>
+            <text font-weight="bold" stroke="#000" transform="matrix(3.0626559257507324,0,0,3.8798120021820064,25.465000919997692,-249.04512436687946) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_12" y="102.002801" x="511.88713" stroke-width="0" fill="#000000">OCUPADO</text>
+            <g stroke="null" id="svg_20">
+            <rect stroke="#000" fill="#00bf00" stroke-width="5" x="517.853864" y="31.930803" width="196.5" height="174.972498" id="svg_13" rx="20"/>
+            <rect stroke="#000" fill="#00bf00" stroke-width="5" x="517.853864" y="11.403301" width="41.264999" height="195.500004" id="svg_14"/>
+            <rect stroke="#000" fill="#00bf00" stroke-width="5" x="673.088864" y="11.403301" width="41.264999" height="195.500004" id="svg_15"/>
+            <rect stroke="#000" fill="#00bf00" stroke-width="5" x="542.416363" y="152.163297" width="147.374999" height="54.740002" id="svg_16" rx="20"/>
+            <rect stroke="#000" fill="#00bf00" x="564.031364" y="34.3746" width="29.475" height="115.345004" id="svg_17" rx="20"/>
+            <rect stroke="#000" fill="#00bf00" x="638.701364" y="34.3746" width="29.474997" height="115.345004" id="svg_18" rx="20"/>
+            <rect stroke="#000" fill="#00bf00" x="601.857556" y="34.3746" width="29.474997" height="115.345004" id="svg_19" rx="20"/>
+            </g>
+            <g stroke="null" id="svg_28">
+            <rect stroke="#000" fill="#ff0000" stroke-width="5" x="1390.187534" y="31.597469" width="196.5" height="174.972498" id="svg_21" rx="20"/>
+            <rect stroke="#000" fill="#ff0000" stroke-width="5" x="1390.187534" y="11.069966" width="41.264999" height="195.500004" id="svg_22"/>
+            <rect stroke="#000" fill="#ff0000" stroke-width="5" x="1545.422534" y="11.069966" width="41.264999" height="195.500004" id="svg_23"/>
+            <rect stroke="#000" fill="#ff0000" stroke-width="5" x="1414.750033" y="151.829962" width="147.374999" height="54.740002" id="svg_24" rx="20"/>
+            <rect stroke="#000" fill="#ff0000" x="1436.365034" y="34.041266" width="29.475" height="115.345004" id="svg_25" rx="20"/>
+            <rect stroke="#000" fill="#ff0000" x="1511.035034" y="34.041266" width="29.474997" height="115.345004" id="svg_26" rx="20"/>
+            <rect stroke="#000" fill="#ff0000" x="1474.191226" y="34.041266" width="29.474997" height="115.345004" id="svg_27" rx="20"/>
+            </g>
+        </symbol>
+
+
+        <g class="escala" transform="scale(0.1)" data-role="viewport-scale">
+            <g id="salaAsientos" class="traslada" transform="translate(0,0)" data-role="viewport-translate">
+
+                <use xlink:href="#pantalla" x="1600" y="0" width="3600" height="1150" />
+
+                <svg class="exit" height="330" width="330" y="1100"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/exit.svg" />
+                </svg>
+                <svg class="exit" height="330" width="330" y="1100" x="5670"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/exit.svg" />
+                </svg>
+
+                <svg class="exit" height="330" width="330" y="4150" x="5600"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <image x="0" y="0" height="330" width="330"  xlink:href="data/door.svg" />
+                </svg>
+            </g>
+        </g>
+
+        <use id="masBoton" xlink:href="#mas" />
+        <use id="menosBoton" xlink:href="#menos" />
+        <use xlink:href="#leyenda"/>
+    </svg>
+
+    <button id="comprar" class="button">PAGAR</button>
+</div>
+<div class="pie">
+    <p>COPYRIGHT 2018 © MOVIETICKET
+        <br/>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/">
+            <img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/es/88x31.png"
+            />
+        </a>
+    </p>
+</div>
+
+    <script src="js/entradas.js"></script>
+</body>
+
+</html>
