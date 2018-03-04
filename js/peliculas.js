@@ -1,5 +1,5 @@
 
-function Entrada(pelicula, usuario, dia, hora) {
+function Entrada(pelicula, dia, hora) {
     this.pelicula = pelicula
     this.dia = dia
     this.hora = hora
