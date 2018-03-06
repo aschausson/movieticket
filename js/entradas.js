@@ -11,6 +11,9 @@ var asientoClicado = null;
 var nEntradas = 10;
 var nEntradasSel = 0;
 var asientos = [];
+var pelicula = '';
+var dia = '';
+var hora = '';
 
 function Asiento (x,y,estado, id) {
     this.x = x
@@ -19,6 +22,18 @@ function Asiento (x,y,estado, id) {
     this.id = id
 }
 
+function Sala (asientos, pelicula, dia, hora){
+    this.asientos = asientos
+    this.pelicula = pelicula
+    this.dia = dia
+    this.hora = hora
+}
+
+function Entrada(pelicula, dia, hora) {
+    this.pelicula = pelicula
+    this.dia = dia
+    this.hora = hora
+}
 
 function creaAsientosJson(x,y,estado){
 	var asiento = new Asiento(x,y,estado)
@@ -26,16 +41,14 @@ function creaAsientosJson(x,y,estado){
 }
 
 
-function recuperar(){
-	retretes = JSON.parse(localStorage.getItem("retretes"))
-	insertaRetretes()
-	tooltipBoton()
-}
-
-
 $( document ).ready(function() {
-    dibujarAsientos();
-    listeners();
+    $('.spinner').fadeIn()
+    var delayInMilliseconds = 3000;
+    setTimeout(function() {
+        $('.spinner').hide()
+        dibujarAsientos();
+        listeners();
+    }, delayInMilliseconds);
 });
 
 
@@ -119,8 +132,9 @@ function listeners(){
 
 
 function guardarPago(){
-    var asientosJson = JSON.stringify(asientos);
-    localStorage.setItem("asientos", asientosJson);
+    sala = new Sala(asientos, pelicula, dia, hora)
+    var salaJson = JSON.stringify(sala);
+    localStorage.setItem("sala", salaJson);
 }
 
 
@@ -174,7 +188,15 @@ function dibujarAsientos(){
     var yActual = 0;
     var pasilloX = 420;
 
-    if (localStorage.getItem("asientos") === null) {
+
+    if (localStorage.getItem("entradaPeli") != null) {
+        var entrada = JSON.parse(localStorage.getItem("entradaPeli"))
+        pelicula = entrada.pelicula;
+        dia = entrada.dia;
+        hora = entrada.hora;
+    }
+
+    if (localStorage.getItem("sala") === null) {
         yActual = comienzoY;
         for (let i = 0; i < nFilas; i++) {
             xActual = comienzoX;
@@ -199,11 +221,13 @@ function dibujarAsientos(){
             }
             yActual += espacioY;
         }
-        var asientosJson = JSON.stringify(asientos);
-        localStorage.setItem("asientos", asientosJson);
+        var sala = new Sala(asientos, pelicula, dia, hora);
+        var salaJson = JSON.stringify(sala);
+        localStorage.setItem("sala", salaJson);
     }
     else{
-        asientos = JSON.parse(localStorage.getItem("asientos"))
+        sala = JSON.parse(localStorage.getItem("sala"));
+        asientos = sala.asientos;
         var cont = 0;
 
         yActual = comienzoY;
@@ -255,7 +279,7 @@ function clickAsiento(asiento){
             $(asiento).toggleClass( "libre" );
             $(asiento).toggleClass( "select" );
             id = asiento["0"].attributes[6].nodeValue;
-            estado = 'select';
+            estado = 'libre';
             nEntradasSel--;
             $('#cantidad').html(nEntradasSel);
             $('#precioTotal').html(nEntradasSel * 6.50);

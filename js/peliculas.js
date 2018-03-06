@@ -17,7 +17,14 @@ $(document).ready(function () {
     $('#panelAyuda').hide()
     $('#peliculaGrande').hide()
 
-    leePeliculas()
+    $('.spinner').fadeIn()
+    var delayInMilliseconds = 3000;
+    setTimeout(function() {
+        $('.spinner').hide()
+        leePeliculas()
+    }, delayInMilliseconds);
+
+
 })
 
 
