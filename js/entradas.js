@@ -8,41 +8,48 @@ var anteriorX = 0;
 var anteriorY = 0;
 var $dragging = null;
 var asientoClicado = null;
-var nEntradas = 4;
+var nEntradas = 10;
 var nEntradasSel = 0;
 var asientos = [];
+var pelicula = '';
+var dia = '';
+var hora = '';
 
-function Asiento (x,y,estado) {
+function Asiento (x,y,estado, id) {
     this.x = x
     this.y = y
     this.estado = estado
+    this.id = id
 }
 
+function Sala (asientos, pelicula, dia, hora){
+    this.asientos = asientos
+    this.pelicula = pelicula
+    this.dia = dia
+    this.hora = hora
+}
 
+function Entrada(pelicula, dia, hora) {
+    this.pelicula = pelicula
+    this.dia = dia
+    this.hora = hora
+}
 
 function creaAsientosJson(x,y,estado){
 	var asiento = new Asiento(x,y,estado)
 	asientos.push(asiento)
-
 }
-
-
-function recuperar(){
-
-	retretes = JSON.parse(localStorage.getItem("retretes"))
-	insertaRetretes()
-	tooltipBoton()
-}
-
 
 
 $( document ).ready(function() {
-    
-    
-    dibujarAsientos();
-    listeners();
+    $('.spinner').fadeIn()
+    var delayInMilliseconds = 3000;
+    setTimeout(function() {
+        $('.spinner').hide()
+        dibujarAsientos();
+        listeners();
+    }, delayInMilliseconds);
 });
-
 
 
 function listeners(){
@@ -107,7 +114,7 @@ function listeners(){
         anteriorY = trasladoY;
     });
 
-    $('#botonIrPagar').click(function(){
+    $('#comprar').click(function(){
         if(nEntradasSel > 0){
             guardarPago()
             window.location.href = 'pagar.html';
@@ -117,11 +124,17 @@ function listeners(){
         }
             
     })
+
+    $('.botonAtras').click(function(){
+        window.location.href = 'index.html';
+    });  
 }
 
 
 function guardarPago(){
-    
+    sala = new Sala(asientos, pelicula, dia, hora)
+    var salaJson = JSON.stringify(sala);
+    localStorage.setItem("sala", salaJson);
 }
 
 
@@ -140,9 +153,9 @@ function move(e){
                 trasladoY = 400;
             $('.traslada').attr('transform', 'translate('+ trasladoX +','+ trasladoY +')');
         }
-
     }
 }
+
 
 function moveMouse(pageX, pageY){
     if ($dragging) {
@@ -159,7 +172,6 @@ function moveMouse(pageX, pageY){
                 trasladoY = 400;
             $('.traslada').attr('transform', 'translate('+ trasladoX +','+ trasladoY +')');
         }
-
     }
 }
 
@@ -176,73 +188,113 @@ function dibujarAsientos(){
     var yActual = 0;
     var pasilloX = 420;
 
-    yActual = comienzoY;
-    for (let i = 0; i < nFilas; i++) {
-        xActual = comienzoX;
-        
-        for (let j = 0; j < nAsientos; j++) {
-            var asiento = document.createElementNS(xmlns, 'use')
-            asiento.setAttributeNS('http://www.w3.org/1999/xlink','href', '#asiento');
-            asiento.setAttributeNS(null,'x', xActual);
-            asiento.setAttributeNS(null,'y', yActual);
-            asiento.setAttributeNS(null,'width', '206');
-            asiento.setAttributeNS(null,'height', '206');
-            asiento.setAttributeNS(null,'class','asiento libre');
-            asiento.setAttributeNS(null,'id',i+'_'+j);
 
-            $('#salaAsientos').append(asiento)
-            xActual += espacioX;
-            if (j == 3 || j == 15)
-                xActual += pasilloX;
-        }
-        yActual += espacioY;
+    if (localStorage.getItem("entradaPeli") != null) {
+        var entrada = JSON.parse(localStorage.getItem("entradaPeli"))
+        pelicula = entrada.pelicula;
+        dia = entrada.dia;
+        hora = entrada.hora;
     }
 
+    if (localStorage.getItem("sala") === null) {
+        yActual = comienzoY;
+        for (let i = 0; i < nFilas; i++) {
+            xActual = comienzoX;
+            
+            for (let j = 0; j < nAsientos; j++) {
+                var asiento = document.createElementNS(xmlns, 'use')
+                asiento.setAttributeNS('http://www.w3.org/1999/xlink','href', '#asiento');
+                asiento.setAttributeNS(null,'x', xActual);
+                asiento.setAttributeNS(null,'y', yActual);
+                asiento.setAttributeNS(null,'width', '206');
+                asiento.setAttributeNS(null,'height', '206');
+                asiento.setAttributeNS(null,'class','asiento libre');
+                asiento.setAttributeNS(null,'id',i+'_'+j);
+
+                var asientoJson = new Asiento(xActual, yActual, 'libre', i+'_'+j);
+                asientos.push(asientoJson);
     
+                $('#salaAsientos').append(asiento)
+                xActual += espacioX;
+                if (j == 3 || j == 15)
+                    xActual += pasilloX;
+            }
+            yActual += espacioY;
+        }
+        var sala = new Sala(asientos, pelicula, dia, hora);
+        var salaJson = JSON.stringify(sala);
+        localStorage.setItem("sala", salaJson);
+    }
+    else{
+        sala = JSON.parse(localStorage.getItem("sala"));
+        asientos = sala.asientos;
+        var cont = 0;
+
+        yActual = comienzoY;
+        for (let i = 0; i < nFilas; i++) {
+            xActual = comienzoX;
+            
+            for (let j = 0; j < nAsientos; j++) {
+                if(asientos[cont].estado == 'select')
+                    asientos[cont].estado = 'libre';
+                var asiento = document.createElementNS(xmlns, 'use')
+                asiento.setAttributeNS('http://www.w3.org/1999/xlink','href', '#asiento');
+                asiento.setAttributeNS(null,'x', asientos[cont].x);
+                asiento.setAttributeNS(null,'y', asientos[cont].y);
+                asiento.setAttributeNS(null,'width', '206');
+                asiento.setAttributeNS(null,'height', '206');
+                asiento.setAttributeNS(null,'class','asiento '+ asientos[cont].estado);
+                asiento.setAttributeNS(null,'id',asientos[cont].id);
+    
+                $('#salaAsientos').append(asiento)
+                xActual += espacioX;
+                if (j == 3 || j == 15)
+                    xActual += pasilloX;
+
+                cont++;
+            }
+            yActual += espacioY;
+        }
+    }  
 }
 
 
-
 function clickAsiento(asiento){
+    var id = '';
+    var estado = '';
+
         if ($(asiento).hasClass('libre')){
             if (nEntradasSel < nEntradas){
                 $(asiento).toggleClass( "libre" );
                 $(asiento).toggleClass( "select" );
+                id = asiento["0"].attributes[6].nodeValue;
+                estado = 'select';
                 nEntradasSel++;
+                $('#cantidad').html(nEntradasSel);
+                $('#precioTotal').html(nEntradasSel * 6.50);
             }
             
         }
         else if ($(asiento).hasClass('select')){
             $(asiento).toggleClass( "libre" );
             $(asiento).toggleClass( "select" );
+            id = asiento["0"].attributes[6].nodeValue;
+            estado = 'libre';
             nEntradasSel--;
+            $('#cantidad').html(nEntradasSel);
+            $('#precioTotal').html(nEntradasSel * 6.50);
         }
 
-    
-        var n = 0
-        $(asiento).each(function(){
-            if ($(this).hasClass('select'))
-                retretes[n].estado="seleccionado"
-            if ($(this).hasClass('libre'))
-                retretes[n].estado="libre"
-            n++
-        })
-        var retretesJson = JSON.stringify(retretes)
-        localStorage.setItem("retretes", retretesJson)
+        for (let i = 0; i < asientos.length; i++) {
+            if (asientos[i].id == id){
+                asientos[i].estado = estado;
+            }
+            
+        }
 
-/*
-	var n = 0
-	$('.ret').each(function(){
-		if ($(this).hasClass('select'))
-			retretes[n].estado="seleccionado"
-		if ($(this).hasClass('libre'))
-			retretes[n].estado="libre"
-		n++
-	})
-	var retretesJson = JSON.stringify(retretes)
-    localStorage.setItem("retretes", retretesJson)
-    */
 }
+
+
 
 
 

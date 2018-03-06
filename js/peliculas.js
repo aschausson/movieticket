@@ -1,5 +1,5 @@
 
-function Entrada(pelicula, usuario, dia, hora) {
+function Entrada(pelicula, dia, hora) {
     this.pelicula = pelicula
     this.dia = dia
     this.hora = hora
@@ -17,7 +17,14 @@ $(document).ready(function () {
     $('#panelAyuda').hide()
     $('#peliculaGrande').hide()
 
-    leePeliculas()
+    $('.spinner').fadeIn()
+    var delayInMilliseconds = 3000;
+    setTimeout(function() {
+        $('.spinner').hide()
+        leePeliculas()
+    }, delayInMilliseconds);
+
+
 })
 
 

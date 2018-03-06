@@ -1,188 +1,130 @@
 
-var votos = []
-var totalVotos = 0
+var precioTotal = 0;
+var precioEntrada = 6.50;
+var pelicula = '';
+var hora = '';
+var dia = '';
+var numAsiento = [];
 
-var info = [
-    ['Memento', 0],
-    ['Terminator 2: El juicio final', 0],
-    ['Origen', 0],
-    ['Mary Poppins', 0],
-    ['Regreso al futuro', 0],
-    ['Cadena perpetua', 0],
-    ['Avatar', 0],
-    ['Ex Machina', 0],
-    ['Mad Max: Furia en la carretera', 0],
-    ['Los goonies', 0]
-]
+dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
 
+function Usuario(nombre, apellidos, email){
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.email = email;
+}
 
-$(document).ready(function (){
-    if (localStorage.getItem("votosPelis") === null) {
+function Tarjeta (numero, mes, anio, csc, tipo){
+    this.numero = numero;
+    this.mes = mes;
+    this.anio = anio;
+    this.csc = csc;
+    this.tipo = tipo;
+}
 
-    }
-    else {
-        votos = JSON.parse(localStorage.getItem("votosPelis"))
-    }
+function Compra(usuario, tarjeta, pelicula, dia, hora, precio, asientos) {
+    this.usuario = usuario;
+    this.tarjeta = tarjeta;
+    this.pelicula = pelicula
+    this.dia = dia
+    this.hora = hora
+    this.precio = precio
+    this.asientos = asientos
+}
 
-    prueba1 = info[2][0]
-    prueba2 = info[2][1]
-    prueba3 = votos[0].pelicula
+$(document).ready(function () {
 
-    for (let j = 0; j < votos.length; j++) {
-        for (var i = 0; i < info.length; i++) {
-            if (info[i][0] == votos[j].pelicula) {
-                info[i][1] = info[i][1] + 1
-                totalVotos++
+    $('.spinner').fadeIn()
+    var delayInMilliseconds = 3000;
+    setTimeout(function() {
+        $('.spinner').hide()
+        var peli = JSON.parse(localStorage.getItem("entradaPeli"));
+        pelicula = peli.pelicula;
+        hora = peli.hora;
+        dia = dias[peli.dia];
+    
+        var sala = JSON.parse(localStorage.getItem("sala"));
+        var asientos = sala.asientos;
+    
+        for (let i = 0; i < asientos.length; i++) {
+            if (asientos[i].estado == 'select') {
+                precioTotal += precioEntrada;
+                numAsiento.push(asientos[i].id);
             }
         }
-    }
-
-    $('#botonTarta').click(graficaPastel)
-    $('#botonColumna').click(graficaColumna)
-    $('#botonDonut').click(graficaDonut)
-
-    $('#atrasResultado').click(irAtras)
-    $('#atrasResultado').keypress(function (e) {
-        if (e.which == 13) {//enter
-            irAtras()
+    
+        $('#pelicula').html(pelicula)
+        $('#dia').html(dia)
+        $('#hora').html(hora)
+        $('#precioTotal').html(precioTotal + '€')
+        for (let i = 0; i < numAsiento.length; i++) {
+            sitio = [];
+            sitio = numAsiento[i].split('_')
+            $('#lista').append('<li>Fila ' + (parseInt(sitio[0]) + 1) + ' asiento ' + (parseInt(sitio[1]) + 1) + '</li>')
         }
-    })
-    graficaPastel()
-    crearAriaLabels()
+    
+        $("form").submit(function (e) {
+            e.preventDefault();
+            var form = this;
+            if (precioTotal > 0) {
+                confirmar();
+            }
+            else{
+                alert('Debe seleccionar algún asiento.')
+            }
+        });
+    
+    
+        $('.botonAtras').click(function(){
+            window.location.href = 'entradas.html';
+        });  
+    }, delayInMilliseconds);
 })
 
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', { 'packages': ['corechart'] });
-
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and draws it.
-function drawChart() {
-
-    // Create the data table.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Película');
-    data.addColumn('number', 'Votos');
-    data.addRows(info);
-
-    // Set chart options
-    var options = {
-        'title': 'Reparto de votos MovieRate',
-        'width': $('.divGrafica').width() - 10,
-        'height': $('.divGrafica').height() - 30,
-        backgroundColor: '#f1f1f1',
-        is3D: true,
-        vAxis: { textPosition: 'in' },
-        chartArea: {
-            left: 0,
-            width: $('.divGrafica').width() - 10
-        },
-        legend: {
-            maxLines: 1,
-            textStyle: {
-                fontSize: 15
-            }
-        },
-        titleTextStyle: {
-            fontSize: 20
-        }
-    }
-
-    $('#pastel').show()
-    $('#columna').show()
-    $('#donut').show()
-
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('pastel'));
-    chart.draw(data, options);
-
-    var chart = new google.visualization.BarChart(document.getElementById('columna'));
-    chart.draw(data, options);
-
-    var optionsDonut = {
-        'title': 'Reparto de votos MovieRate',
-        'width': $('.divGrafica').width() - 10,
-        'height': $('.divGrafica').height() - 30,
-        backgroundColor: '#f1f1f1',
-        is3D: false,
-        pieHole: 0.3,
-        chartArea: {
-            left: 0,
-            width: $('.divGrafica').width() - 10
-        },
-        legend: {
-            maxLines: 1,
-            textStyle: {
-                fontSize: 15
-            }
-        },
-        titleTextStyle: {
-            fontSize: 20
-        }
-    }
-
-    var chart = new google.visualization.PieChart(document.getElementById('donut'));
-    chart.draw(data, optionsDonut);
-
-    $('#columna').hide()
-    $('#donut').hide()
-
-    $('#pastel').find('#defs').remove()
-    $('#donut').find('#defs').remove()
-}
-
-
-
-function graficaPastel() {
-    $('#botonTarta').removeClass('botonesInactivo').addClass('botonesActivo')
-    $('#botonColumna').removeClass('botonesActivo').addClass('botonesInactivo')
-    $('#botonDonut').removeClass('botonesActivo').addClass('botonesInactivo')
-
-    $('#pastel').show()
-    $('#columna').hide()
-    $('#donut').hide()
-}
-
-
-function graficaColumna() {
-    $('#botonTarta').removeClass('botonesActivo').addClass('botonesInactivo')
-    $('#botonColumna').removeClass('botonesInactivo').addClass('botonesActivo')
-    $('#botonDonut').removeClass('botonesActivo').addClass('botonesInactivo')
-
-    $('#pastel').hide()
-    $('#columna').show()
-    $('#donut').hide()
-}
-
-
-function graficaDonut() {
-    $('#botonTarta').removeClass('botonesActivo').addClass('botonesInactivo')
-    $('#botonColumna').removeClass('botonesActivo').addClass('botonesInactivo')
-    $('#botonDonut').removeClass('botonesInactivo').addClass('botonesActivo')
-
-    $('#pastel').hide()
-    $('#columna').hide()
-    $('#donut').show()
-}
 
 function irAtras() {
     window.location.href = 'index.html'
 }
 
-function crearAriaLabels() {
-    var aria = ''
-    for (let i = 0; i < info.length; i++) {
-        if (info[i][1] > 0) {
-            if (info[i][1] == 1)
-                aria += info[i][0] + ' tiene ' + info[i][1] + ' voto de ' + totalVotos + '. '
-            else
-                aria += info[i][0] + ' tiene ' + info[i][1] + ' votos de ' + totalVotos + '. '
+
+function confirmar() {
+    var sala = JSON.parse(localStorage.getItem("sala"));
+    var asientos = sala.asientos;
+    for (let i = 0; i < asientos.length; i++) {
+        if (sala.asientos[i].estado == 'select') {
+            sala.asientos[i].estado = 'ocupado';
         }
     }
-    $('#pastel').attr('aria-label', aria)
-    $('#columna').attr('aria-label', aria)
-    $('#donut').attr('aria-label', aria)
+    var salaJson = JSON.stringify(sala);
+    localStorage.setItem("sala", salaJson);
+
+    
+    var compras = []
+
+    var usuario = new Usuario($('#nombre').val(), $('#apellidos').val(), $('#email').val());
+    var tarjeta = new Tarjeta($('#numTarjeta').val(), $('#mes').val(), $('#anio').val(), $('#csc').val(), $('select[name=tipoTarjeta]').val());
+    var compra = new Compra(usuario, tarjeta, pelicula, dia, hora, precioTotal, numAsiento);
+
+    if (localStorage.getItem("compras") === null) {
+        compras.push(compra);
+        var comprasJson = JSON.stringify(compras);
+        localStorage.setItem("compras", comprasJson);
+    }
+    else{
+        compras = JSON.parse(localStorage.getItem("compras"))
+        compras.push(compra);
+        var comprasJson = JSON.stringify(compras);
+        localStorage.setItem("compras", comprasJson);
+    }
+
+    fin();
+}
+
+
+function fin() {
+    $('form').empty();
+    $('.botonAtras').remove();
+    $('h3').html('Confirmación');
+    $('.container').append('<h1>¡Compra realizada!</h1>');
+    $('.container').append('<a href="index.html">Volver a cartelera</a>')
 }

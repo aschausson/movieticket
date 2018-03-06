@@ -1,71 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/pagar.css">
+    <link rel="stylesheet" href="css/spin.css">
+    <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div id="cabecera" aria-level=1 aria-label="MovieTicket">
         <img id="titulo" tabindex="0" src="data/movieticket.svg" alt="" aria-label="Web de valoración de películas">
     </div>
 
 
-        
+
 
 
     <div class="container">
-            <div class="procesoCompra"><h3> 3. Realice el pago</h3></div>
+        <div class="procesoCompra">
+            <h3> 3. Realice el pago</h3>
+        </div>
+        <hr/>
+        <div id="info">
+            <p>
+                <label for="">Película: </label>
+                <span id="pelicula">___</span>
+            </p>
+            <p>
+                    <span id="dia">__</span> a las <span id="hora">__</span>
+                </p>
+            <p>
+                <label for="">Precio total: </label>
+                <span id="precioTotal">0.00€</span>
+            </p>
+            <p>
+                <label for="">Asientos seleccionados:</label>
+            </p>
+            <ul id="lista">
+
+            </ul>
+        </div>
         <hr/>
         <form>
-          <h1>
-             Material Design formular<small>MIT license</small></h1>
-          <div class="form-group">
-            <select>
-              <option>Value 1</option>
-              <option>Value 2</option>
-            </select>
-            <label class="control-label" for="select">Selectbox</label><i class="bar"></i>
-          </div>
-          <div class="form-group">
-            <input type="text" required="required">
-            <label class="control-label" for="input">Textfield</label><i class="bar"></i>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" checked="checked"><i class="helper"></i>I'm the label from a checkbox
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"><i class="helper"></i>I'm the label from a checkbox
-            </label>
-          </div>
-          <div class="form-radio">
-            <div class="radio">
-              <label>
-                <input type="radio" name="radio" checked="checked"><i class="helper"></i>I'm the label from a radio button
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="radio"><i class="helper"></i>I'm the label from a radio button
-              </label>
-            </div>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"><i class="helper"></i>I'm the label from a checkbox
-            </label>
-          </div>
-        </form>
-        <div class="button-container">
-          <button class="button" type="button"><span>Submit</span></button>
-        </div>
-      </div>
+            <h1>
+                Formulario de pago
 
+            </h1>
+            <div class="form-group">
+                <input type="email" id="email" required="required">
+                <label class="control-label" for="input">Email</label>
+                <i class="bar"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" id="nombre" required="required">
+                <label class="control-label" for="input">Nombre</label>
+                <i class="bar"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="apellidos" required="required">
+                <label class="control-label" for="input">Apellidos</label>
+                <i class="bar"></i>
+            </div>
+
+            <div class="form-group numTarjeta">
+                <input type="text" id="numTarjeta" pattern="[0-9]{14}" title="Introduzca un número de 14 cifras." required="required">
+                <label class="control-label" for="input">Número de tarjeta</label>
+                <i class="bar"></i>
+            </div>
+            <div class="form-group infoTarjeta">
+                <input type="number" id="mes" required="required">
+                <label class="control-label" for="input">Mes</label>
+                <i class="bar"></i>
+            </div>
+            <div class="form-group infoTarjeta">
+                <input type="number" id="anio" required="required">
+                <label class="control-label" for="input">Año</label>
+                <i class="bar"></i>
+            </div>
+            <div class="form-group infoTarjeta">
+                <input type="number" id="csc" required="required">
+                <label class="control-label" for="input">CSC</label>
+                <i class="bar"></i>
+            </div>
+
+            <div class="form-group">
+                <select name="tipoTarjeta">
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">Mastercard</option>
+                    <option value="paypal">Paypal</option>
+                </select>
+                <label class="control-label" for="select">Tipo de tarjeta</label>
+                <i class="bar"></i>
+            </div>
+            <div class="button-container">
+                <button id="pagar" class="button" type="submit">
+                    <span>Submit</span>
+                </button>
+            </div>
+
+        </form>
+        <img class="botonAtras" src="data/img/back.png" alt="" id="pgAtras" tabindex="0" aria-label="Botón para volver a la zona de selección de películas, pulse enter o escape.">
+
+    </div>
+
+    <div class="spinner"></div>
 
     <div class="pie">
         <p>COPYRIGHT 2018 © MOVIETICKET
@@ -76,5 +119,8 @@
             </a>
         </p>
     </div>
+
+    <script src="js/resultados.js"></script>
 </body>
+
 </html>
